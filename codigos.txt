@@ -1,0 +1,203 @@
+alterando os ids
+
+document.getElementById('producao') + enter //vai buscar esse id pra mim
+
+//seta pra cima 
+
+document.getElementById('producao').value='Teste JavaScript' + enter //vai mudar o campo
+
+-----------------------
+alterando classes
+
+document.getElements //ele vai dar opções das classes existentes
+
+vou completar assim:
+
+document.getElementsByClassName('estatistica') + enter
+//vai retornar uma coleção de elementos do html
+//É um array com 4 elementos
+
+------------------------------------------------------
+/*
+No css podemos interagir com o nome da tag
+podemos interagir com as clases e os id 
+usando a query selector, ele vai buscar o seletor que a gente configurar
+utilizarems a tralha #
+nesse caso fica mais prático pois usamos somente o querySelector para buscar qualquer
+coisa que quiser-mos
+*/
+//aqui nós vamos usar o querySelector e vai dar o mesmo retorno
+
+document.querySelector('#producao')
+------------------------------------------------------------
+DOM - document object model
+Document é o nosso arquivo de html
+
+------------------------------------------------------------
+
+Métodos para selecionar elementos no HTML
+
+document.getElementByID(id) - Selecionar um elemento pelo ID.
+document.getElementsByTagName(name) - Selecionar um elemento pelo nome.
+document.getElementsByClassName(name) - Selecionar um elemento pelo nome da classe.
+Propriedades e métodos para alterar elementos no HTML
+
+element.innerHTML - Esta propriedade obtém ou altera qualquer elemento no HTML, inclusive tags.
+element.innerText - Esta propriedade permite inserir textos no HTML.
+element.attribute - Esta propriedade altera o valor de um elemento HTML
+element.setAttribute(atributo, valor) - Este método altera o valor de um atributo de um elemento HTML.
+Adicionando e excluindo elementos
+
+document.write() - Escreve no fluxo de saída do HTML.
+document.appendChild() - Adiciona um elemento HTML.
+document.removeChild() - Remove um elemento HTML.
+document.replaceChild() - Substitui um elemento HTML.
+document.createElement() - Cria um elemento HTML.
+
+---------------------------- alert(' ')---------------------------------------
+//para escrever uma caixa de bem vindo na tela
+
+alert('olá')
+------------------------------------ onclick='alert('')'-----------------------------
+
+Se eu for no html linha 18 e colocar o evendo onclick="alert('oi')"> no final do codigo
+sempre que eu clicar no robô, ele vai abrir a caixa de boas vindas.
+------------------------------------------------------------------------------------------
+
+O ideal é criar os scripts para fazer esses códigos, então vou criar um arquivo
+main.js e fazer o link para o html usando 
+
+<script src="main.js>" 
+
+</script>
+
+será adicionado no final do body
+
+no meu main.js vou colocar um escutador de click para fazer esse evento
+.addEventListener('click')
+ele tem que ser adicionado a alguma coisa, nesse caso aqui é no robotron
+
+adicionei um id no Robotron linha 18
+
+e no main.js tem que ficar
+
+document.querySelector('#Robotron').addEventListener('click')
+
+//Essa função .addEventListener espera duas coisas, o primeiro é o click e a segunda o que 
+ela vai fazer, eu posso passar um console.log('oi') mas vou passar isso dentro de uma função
+
+*** Fica assim o códigos
+------------------------
+const Robotron = document.querySelector("#Robotron")
+
+Robotron.addEventListener("click", dizOi)
+
+function dizOi() {
+    console.log("Oi")
+}
+
+------------------------------
+Função é uma forma de armazenarmos códigos que serão repetidos várias vezes. 
+A função é usada para que esse código seja chamado mais de um vez.
+
+quando eu invoco a função, o código é lido automáticamente
+
+para isso em baixo do código eu coloco
+
+dizOi()
+
+Assim eu crio duas formas de apresentar meu código, quando eu invoco a função e quando eu clico
+--------------------------------
+Isso é uma declaração de função
+
+------------------------------------
+Nessa lingagem, podemos criar uma função anônima, ou seja, uma função sem nome. 
+Se ao clicar no Robotron, nós quisessemos que esse código fosse executado apenas uma vez, 
+poderíamos usar uma função anônima.
+Para isso, declaramos ela em addEventLeitener(). Não colocamos nome nela, colocamos o parênteses, 
+abrimos chaves e executamos o código.
+
+robotron.addEventLeitener("click", function() {
+    console.log('Cliquei no robô.')
+})
+
+-------------------------------------------
+
+A diferença da função anônima para a declarada é que a declara pode ser chamada mais vezes 
+por ter um nome. 
+Uma função anônima só pode ser executada uma única vez, quando um gatilho for disparado, 
+nesse caso, quando o evento do click for disparado.
+
+----------------------------------------------
+
+As novas versões do JavaScript a partir do ES6 ainda tem uma forma diferente de declaramos 
+uma função anônima. No lugar de usarmos function(), nós abrimos parênteses e colocamos uma 
+seta formada por um sinal de igual e um maior =>.
+----------------------------------------------
+
+*****************************************************************
+Esse é o código que vou usar para adicionar eventos no robotôn
+
+const Robotron = document.querySelector("#Robotron")
+
+Robotron.addEventListener("click", (evento) => {
+    console.log(evento)
+})
+
+function dizOi(nome) {
+    console.log("Oi " + nome)
+    console.log("Seja bem vindo ao Robotron 2000!")
+}
+
+dizOi('Eddie')
+
+********************************************************************
+
+Para não precisar repertir esse código várias vezes eu vou criar uma função para isso
+
+----------------------------------------------------------------------------------------------
+
+Data-attributes são utilizados para guardar valores em elementos HTML. 
+Esses valores podem ser manipulados através do JavaScript. Também é possível 
+estilizar elementos HTML com CSS referenciando o seu data-attribute. 
+Essa funcionalidade é bem recente no mundo do desenvolvimento, 
+sendo lançada na última versão do HTML(HTML5).
+
+No JavaScript, podemos criar uma função que recebe esses atributos, permitindo manipulá-los:
+
+JS
+
+function mudaCores(elementos){
+    var cores = elementos.getAttribute("[data-cor]");
+    var tipoElemento = elementos.getAttribute("[data-tipo]");
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
